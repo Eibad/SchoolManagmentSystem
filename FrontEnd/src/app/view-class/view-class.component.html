@@ -1,0 +1,34 @@
+<div nz-row nzJustify="end">
+    <div nz-col>
+    <button nz-button  nzType="primary" (click)="addclass()" style="width: 200px;">Add Class</button>
+    </div>
+    </div>
+    
+    
+    <br />
+    <!-- <br /> -->
+    <nz-table #editRowTable nzBordered >
+      <thead>
+        <tr>
+          <th nzWidth="30%">Class</th>
+          <th>Class Teacher</th>
+          <th>Total Students</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of editRowTable.data" class="editable-row">
+          <td>
+            <div class="editable-cell">
+              {{ data.name }}
+            </div>
+            <input  type="text" nz-input />
+          </td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" >Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>

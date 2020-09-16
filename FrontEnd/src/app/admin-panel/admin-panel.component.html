@@ -1,0 +1,49 @@
+  
+<nz-layout>
+    <nz-sider nzCollapsible nzWidth="200px"  >
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-submenu nzTitle="Teacher">
+          <ul>
+            <li nz-menu-item routerLink="/addteacher" >Add</li>
+            <li nz-menu-item (click) = "viewteacher()" >View</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Student" (click)= "viewstudent()">
+         
+        </li>
+        <li nz-submenu nzTitle="Class">
+                <ul>
+                  <li nz-menu-item (click)= "viewclass()">View</li>
+                </ul>
+              </li>
+        <li nz-submenu nzTitle="Course">
+                    <ul>
+                      <li nz-menu-item>Add</li>
+                      <li nz-menu-item>List</li>
+                    </ul>
+            </li>
+        <li nz-menu-item>
+          <i  nzType="file"></i>
+          <span>File</span>
+        </li>
+      </ul>
+    </nz-sider>
+
+
+
+    <nz-layout>
+      <!-- <nz-header></nz-header> -->
+      <nz-content>
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>{{main}}</nz-breadcrumb-item>
+          <nz-breadcrumb-item>{{sub}}</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+          <!-- <app-add-teacher></app-add-teacher> -->
+        </div>
+      </nz-content>
+      <nz-footer>SMS ©2020 Implement By Angular</nz-footer>
+    </nz-layout>
+  </nz-layout>
