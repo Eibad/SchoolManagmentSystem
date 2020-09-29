@@ -4,6 +4,10 @@ import {Teacher} from '../iTeacher'
 import { TeacherService } from '../teacher.service';
 import { error } from 'selenium-webdriver';
 
+
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-view-teacher',
   templateUrl: './view-teacher.component.html',
@@ -11,10 +15,12 @@ import { error } from 'selenium-webdriver';
 })
 export class ViewTeacherComponent implements OnInit {
 
-  teacherArr =[]
+  teacherArr =[];
+  teacherName;
 
 
-  constructor( private teacherService : TeacherService) {
+
+  constructor(private route : Router , private teacherService : TeacherService) {
    }
 
 
@@ -28,6 +34,10 @@ export class ViewTeacherComponent implements OnInit {
     // this.addRow();
   }
 
+  ngOnChanges(){
+    this.searchTeachers()
+  }
+
   viewteacher(){
 
     this.teacherService.getAllTeacher().subscribe((respone:any)=>{
@@ -36,6 +46,26 @@ export class ViewTeacherComponent implements OnInit {
       }, error => {
         console.log(error);
       })
+  }
+
+  searchTeachers(){
+    this.teacherService.searchTeacher(this.teacherName).subscribe(response =>{
+
+      this.teacherArr = response;
+    },error=> console.log(error));
+
+  }
+
+  delete(id){
+
+    this.teacherService.deleteTeacher(id).subscribe(response=>console.log(response), error=>console.log(error));
+    alert("deleted"+id);
+    this.ngOnInit();
+    //this.route.navigate(["viewstudent"]);
+  }
+
+  edit(id){
+    this.route.navigate(["editteacher/"+id]);
   }
 
   // i = 0;

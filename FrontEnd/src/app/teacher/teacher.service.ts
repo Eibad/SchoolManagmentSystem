@@ -26,9 +26,13 @@ export class TeacherService {
   getTeacher(id): Observable<any> {
     return this.http.get(this.baseUrl+this.api + "/teacher/" + id);
   }
+  
+  searchTeacher(name): Observable<any> {
+    return this.http.get(this.baseUrl+this.api + "/" + name);
+  }
 
   deleteTeacher(id) {
-    return this.http.delete(this.baseUrl+this.api + "/teacher" + id);
+    return this.http.delete(this.baseUrl+this.api + "/teacher/" + id);
   }
   
   updateTeacher(teacherid, teacher) {

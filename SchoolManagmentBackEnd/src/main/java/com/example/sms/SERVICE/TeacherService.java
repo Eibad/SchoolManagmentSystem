@@ -63,6 +63,12 @@ public class TeacherService {
         }
     }
 
+    public void deleteTeacher(Long index){
+
+        teacherRepository.deleteById(index);
+
+    }
+
     public ResponseEntity<Teacher> getById(Long teacherId){
         try {
             Optional<Teacher> teacher = teacherRepository.findById(teacherId);
@@ -91,16 +97,13 @@ public class TeacherService {
         }
     }
 
-    public ResponseEntity<List <Teacher>> searchByName(String teacherName){
-        try {
+    public List <Teacher> searchByName(String teacherName){
 
-            List<Teacher> teacher = teacherRepository.findAll();
-            return new ResponseEntity<List<Teacher>>(teacher,HttpStatus.OK);
 
-        }
-        catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+            List<Teacher> teachers = teacherRepository.searchByFirstName(teacherName);
+            return teachers;
+
+
     }
 
 

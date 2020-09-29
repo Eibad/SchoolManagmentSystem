@@ -11,6 +11,7 @@ import com.example.sms.SERVICE.StudentService;
 import com.example.sms.SERVICE.TeacherService;
 import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,8 +48,17 @@ public class TeacherController {
         return teacherService.getAll();
     }
 
-    @GetMapping("/teacher/{name}")
-    private ResponseEntity<List<Teacher>> searchByName(@NotNull @PathVariable("name") String name){
-        return  teacherService.searchByName(name);
+    @GetMapping("/{name}")
+    private ResponseEntity<List <Teacher>> searchByName(@NotNull @PathVariable("name") String name){
+        return  new ResponseEntity<List<Teacher>>(teacherService.searchByName(name), HttpStatus.OK);
     }
+
+    @DeleteMapping("/teacher/{index}")
+    public ResponseEntity<String> deleteCar(@NotNull @PathVariable("index") Long index){
+        teacherService.deleteTeacher(index);
+        return new ResponseEntity<String>("success", HttpStatus.OK);
+
+    }
+
+
 }

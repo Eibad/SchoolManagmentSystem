@@ -1,0 +1,183 @@
+<div class="card" style=" width: 100%;">
+    <h2  style= "background-color:whitesmoke;  padding-left: 25px ;" >Edit Teacher  </h2>
+    <form class="form-horizontal" role="form" style="padding: 40px;" #teacherForm="ngForm" (ngSubmit)="updateTeacher(teacherForm.value)">
+      
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="inputName">First Name</label>
+                    <input type="text" class="form-control" id="inputName"  name="firstName"  [(ngModel)]=teacher.firstName>
+                </div>
+                <div class="col">
+                    <label for="inputEmail">Last Name</label>
+                    <input type="email" class="form-control" id="inputEmail"  name="lastName"  [(ngModel)]=teacher.lastName>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="inputName">Contact No.</label>
+                    <input type="text" class="form-control" id="inputName" >
+                    <!-- <span class="help-block">Your phone number won't be disclosed anywhere </span> -->
+                </div>
+                <div class="col">
+                    <label for="inputEmail">Email*</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email"  [(ngModel)]=teacher.email>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail">Date of Birth</label>
+                    <input type="date" class="form-control" id="inputEmail" name="dob"  [(ngModel)]=teacher.dob>
+                </div>
+                <div class="col">
+                    <label for="inputEmail">Address*</label>
+                    <input type="text" class="form-control" id="inputEmail" name="address"  [(ngModel)]=teacher.address>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+
+                    <label for="inputEmail">Picture</label>
+                    <div class="custom-file">
+
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="customFile" name="picture" ngModel>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="inputEmail">Qualification</label>
+                    <input type="text" class="form-control" id="inputEmail" name="qualification"  [(ngModel)]=teacher.qualification>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="">
+            <div class="row">
+                <label class="control-label"   >Gender</label>
+                <div class="col">
+                    <label class="radio-inline">
+                        <input type="radio" id="femaleRadio" value="Female" name="gender" [(ngModel)]=teacher.gender>Female
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="radio-inline">
+                        <input type="radio" id="maleRadio" value="Male" name="gender" [(ngModel)]=teacher.gender>Male
+                    </label>
+                </div>
+
+                <label class="control-label" style="padding-left:80px ;">Marital Status</label>
+                <div class="col">
+                    <label class="radio-inline">
+                        <input type="radio" id="femaleRadio" value="Female" >UnMarried
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="radio-inline">
+                        <input type="radio" id="maleRadio" value="Male">Married
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+        </div>
+
+
+
+
+        <!-- /.form-group -->
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-0.5"> <button type="submit" class="btn btn-default" >Cancel</button>
+            </div>
+            <div class="col"><button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form> <!-- /form -->
+</div>
+
+
+
+
+<!-- <div class="container">
+  <table class="table table-striped">
+     <tbody>
+        <tr>
+           <td colspan="1">
+              <form class="well form-horizontal">
+                 <fieldset>
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">Full Name</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">Address</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine1" name="addressLine1" placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                   
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">City</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">State/Province/Region</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="state" name="state" placeholder="State/Province/Region" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">Postal Code/ZIP</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="postcode" name="postcode" placeholder="Postal Code/ZIP" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                   
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">Email</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="Email" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">Phone Number</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                    </div>
+                 </fieldset>
+              </form> 
+              <div class="form-group text-center">
+              <button class=" col-md-8 btn btn-success" >Add Teacher</button>
+              </div>
+           </td>
+           
+        </tr>
+     </tbody>
+  </table>
+</div> -->

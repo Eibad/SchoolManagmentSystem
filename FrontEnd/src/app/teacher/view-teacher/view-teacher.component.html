@@ -12,7 +12,7 @@
                     <div class="search-box">
                         <i class="material-icons">&#xE8B6;</i>
                         <!-- <input type="text" class="form-control" placeholder="Search&hellip;"> -->
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="teacherName" (click)= "searchTeachers()" >
                     
                 </div>
               </div>
@@ -53,8 +53,8 @@
                     <td>213231</td>
                     <td>
                         <a href="#" class="view" title="View"><i class="material-icons">&#xE417;</i></a>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="edit" (click)="edit(val.id)" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" (click)="delete(val.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                 </tr>
                 

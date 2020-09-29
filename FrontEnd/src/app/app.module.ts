@@ -19,11 +19,12 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTeacherComponent } from './teacher/add-teacher/add-teacher.component';
-import { AddStudentComponent } from './add-student/add-student.component';
-import { ViewStudentComponent } from './view-student/view-student.component';
+import { AddStudentComponent } from './student/add-student/add-student.component';
+import { ViewStudentComponent } from './student/view-student/view-student.component';
 import { ViewTeacherComponent } from './teacher/view-teacher/view-teacher.component';
 import { AddClassComponent } from './add-class/add-class.component';
 import { ViewClassComponent } from './view-class/view-class.component';
+import { EditTeacherComponent } from './teacher/edit-teacher/edit-teacher.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ViewClassComponent } from './view-class/view-class.component';
     ViewStudentComponent,
     ViewTeacherComponent,
     AddClassComponent,
-    ViewClassComponent
+    ViewClassComponent,
+    EditTeacherComponent
   ],
   imports: [
     BrowserModule,
