@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from './iStudent'
+import {Student} from '../iStudent'
 import { Router } from '@angular/router';
+
+import { StudentService } from '../student.service';
 
 
 @Component({
@@ -10,8 +12,12 @@ import { Router } from '@angular/router';
 })
 export class ViewStudentComponent implements OnInit {
 
+  studentArr =[];
+  studentName;
+
+
   
-  constructor(private route : Router) { }
+  constructor(private route : Router,private studentService : StudentService) { }
 
 
 
@@ -28,6 +34,37 @@ export class ViewStudentComponent implements OnInit {
   addstudent(){
     this.route.navigate(["/addstudent"])
   }
+
+  viewStudent(){
+
+    this.studentService.getAllStudent().subscribe((respone:any)=>{
+
+      this.studentArr = respone;      
+      }, error => {
+        console.log(error);
+      })
+  }
+
+  searchStudent(){
+    this.studentService.searchStudent(this.studentName).subscribe(response =>{
+
+      this.studentArr = response;
+    },error=> console.log(error));
+
+  }
+
+  delete(id){
+
+    this.studentService.deleteStudent(id).subscribe(response=>console.log(response), error=>console.log(error));
+    alert("deleted"+id);
+    this.ngOnInit();
+    //this.route.navigate(["viewstudent"]);
+  }
+
+  edit(id){
+    this.route.navigate(["editteacher/"+id]);
+  }
+
 
 
   startEdit(id: string): void {
